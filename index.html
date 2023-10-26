@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyboardNinJa</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h2>
+        Keyboard
+        <span>NinJa</span>
+      </h2>
+    </header>
+
+    <main>
+      <div class="field sample-text">
+        <h4></h4>
+      </div>
+
+      <div class="field text-input">
+        <textarea autofocus placeholder="start typing..."></textarea>
+      </div>
+
+      <div class="typing-info">
+        <div class="wrapper">
+          <p>
+            <strong>Time Spent:</strong> <span id="time-spent"></span>
+            <i>sec</i>
+          </p>
+          |
+          <p><strong>Errors:</strong> <i id="error-count"></i></p>
+          |
+          <p><strong>Points Gained:</strong> <i id="points">3</i></p>
+        </div>
+
+        <div class="speed-wrapper">
+          <h3 id="typing-speed"></h3>
+          <span>WPM</span>
+        </div>
+
+        <button onclick="next()">continue</button>
+      </div>
+    </main>
+
+    <script src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-clr: #773ab1;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #f8fcfdf3;
+  font-family: raleway;
+  background-color: #101218;
+}
+
+body::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: #000000ea;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+body.active::before {
+  opacity: 1;
+  pointer-events: all;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 12px;
+  padding: 20px;
+}
+
+header h2 span {
+  font-family: "Lucida Sans Unicode";
+  color: var(--accent-clr);
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  padding: 0 20px 15px;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  background-color: #14151d;
+  border: 1px solid #ffffff25;
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.sample-text .loading {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.loading .loader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loader::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 10px;
+  bottom: 50%;
+  background-color: var(--accent-clr);
+  transform-origin: bottom;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader::after {
+  position: absolute;
+  content: "";
+  height: 88%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  background-color: #14151d;
+  border-radius: 10px;
+}
+
+.sample-text h4 {
+  font-family: roboto;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 1px;
+}
+
+.sample-text .error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.error img {
+  height: 250px;
+}
+
+.error span {
+  color: var(--accent-clr);
+}
+
+h4 .correct {
+  color: #37c037;
+  text-decoration: underline;
+}
+h4 .incorrect {
+  color: #ee3131;
+  border: 1px dashed red;
+}
+
+.text-input {
+  flex-grow: 1;
+  border-color: var(--accent-clr);
+}
+
+textarea {
+  width: 100%;
+  min-height: 100%;
+  padding: 0;
+  border: none;
+  resize: none;
+  background-color: transparent;
+  color: #ffffffee;
+  font-family: roboto;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 1px;
+}
+textarea:focus {
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+}
+
+.typing-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  padding: 30px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.151);
+  background-color: rgba(9, 9, 14, 0.986);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.typing-info .wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+body.active .typing-info {
+  display: flex;
+}
+
+.speed-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--accent-clr);
+  border: 1px solid rgba(255, 255, 255, 0.336);
+  margin: auto;
+  width: 45%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.speed-wrapper h3 {
+  font-size: 60px;
+  font-family: roboto;
+}
+
+.speed-wrapper span {
+  font-weight: bold;
+}
+
+.typing-info button {
+  padding: 14px 20px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  color: var(--accent-clr);
+  cursor: pointer;
+}
+.typing-info button:active {
+  transform: scale(1.02);
+}
